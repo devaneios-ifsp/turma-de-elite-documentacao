@@ -1,0 +1,25 @@
+\chapter[Equipe AcadTech]{Equipe AcadTech}
+A equipe AcadTech tem como projeto a aplicação MovieStar.
+
+
+\section{Projeto MovieStar}
+O projeto MovieStar tem como intuito a condensação de vários resumos de obras cinematográficas na plataforma, a fim de que os usuários possam avaliá-las e discuti-las.
+
+
+Visto que o projeto será executado em ambientes Web, a arquitetura do projeto está coerente. Entretanto, vale ressaltar alguns detalhes de implementação que podem ser considerados. É cabível ressaltar também que o problema inicial do sistema gerenciador de banco de dados escolhido foi resolvido, uma vez que a equipe passará a utilizar a solução de código aberto PostgreSQL para armazenamento e gerenciamento das informações, não mais o SQL Server.
+
+
+Apesar da ideia de algo parecido com uma rede social ter sido apresentada inicialmente, o que é pouco possível de ser executada no contexto da disciplina, a equipe conseguiu diminuir a dependência da plataforma com relação ao seu módulo de comunicação entre usuários, focando nas funcionalidades de avaliação das obras cinematográficas.
+
+
+Com relação a apresentação visual, há apenas alguns detalhes que precisam ser revistos. Entre eles, está o desenho da arquitetura geral do sistema, no qual não foi possível distinguir com clareza a comunicação entre as camadas da aplicação e as tecnologias que as compõem.
+
+
+Por fim, cabe enfatizar que a viabilidade financeira para o projeto foi definida, com a adoção de um plano Premium a um preço fixo que garante maiores funcionalidades aos usuários que acessarem a plataforma.
+
+
+\subsection{Sugestões de melhorias}
+Para a apresentação visual, uma solução plausível para a representação da arquitetura do sistema seria a nomeação de cada parte da aplicação em cada círculo (com \textit{back-end} e \textit{front-end}, por exemplo), para que a representação das partes do sistema, com as suas respectivas tecnologias, fique mais clara. 
+
+
+Para a arquitetura do projeto, uma sugestão simples e intuitiva que pode ser implementada é a maior separação das classes no modelo MVC por meio da criação de pacotes de serviço para realizar a interação com o banco de dados, e pacotes de exibição, para prevenir a apresentação de dados sensíveis ao usuário, como identificadores pessoais e senhas, por exemplo.

@@ -1,0 +1,77 @@
+\section{Escalabilidade}
+A escalabilidade da aplicação está intimamente ligada à infraestrutura adotada. Como aplicação é hospedada utilizando serviços de nuvem como Heroku e Firebase Hosting, categorizados como \ac{paas}. Os detalhes de infraestrutura são abstraídos facilitando a manutenção, extensão e escalabilidade além de oferecer baixo custo inicial. 
+
+Como no início a aplicação será ofertada a um número pequeno de usuários, o plano gratuito já será suficiente para comportar o número de acessos. E assim, conforme houver necessidade, será possível escalar a aplicação mediante a contratação de pacotes com mais recursos.
+
+\section{Manutenibilidade da aplicação}
+Para melhorar a qualidade do sistema na fase de desenvolvimento e, posteriormente, na fase de manutenção, foram estabelecidos ferramentas e padrões a serem adotados.
+
+\subsection{Testes automatizados e análise estática}
+
+
+Como o \textit{\gls{back-end}} da aplicação é desenvolvido em Java, a ferramenta adotada para automatização de testes é o JUnit. O JUnit é um \textit{\gls{framework}} de código aberto que auxilia o desenvolvimento de testes que verificam o funcionamento das classes e seus métodos. Ademais, a utilização do JUnit permite que toda estrutura de testes criada, seja executada a cada atualização da aplicação  de modo a garantir sua estabilidade e integridade.
+
+
+%---Removido em 25/07
+%No \textit{\gls{front-end}} são adotados os \textit{\glspl{framework}} de testes para Angular: Jasmine e Karma. Com o Jasmine, os testes podem ser escritos de maneira independente do navegador e de bibliotecas para seu funcionamento. O Karma é utilizado para automatizar testes e executá-los para diversos navegadores a partir de um único comando. Com o Karma, além de testes unitários, também é possível realizar testes de integração e \ac{e2e}.
+
+
+Todas as ferramentas escolhidas são configuradas com servidores de integração contínua (\ac{ci}) de modo a manter o projeto livre de erros e inconsistências.
+
+
+A análise estática do código no \textit{\gls{back-end}} é realizada pela ferramenta \textit{\gls{deep-source}}. Essa ferramenta possui integração nativa com o GitHub que permite revisão do código durante todo processo de desenvolvimento do projeto, além de permitir rastrear métricas de código como cobertura de testes e de documentação. No \textit{\gls{front-end}} a análise é realizada pelo próprio \textit{\gls{eslint-schematics}} do Angular.
+
+
+\subsection{Sistemas de \textit{log}}
+Gerenciar os \textit{\glspl{log}} da aplicação é essencial para manter sua integridade. Com os \textit{\glspl{log}} é possível analisar as operações internas da aplicação, permitindo uma maior rastreabilidade que fornecem informações necessárias para resolução de possíveis problemas na aplicação.
+
+
+O sistema de \textit{\gls{log}} \gls{journalctl} foi adotado para o PostgreSQL. Ele é responsável por registrar os logs de entrada e saída da \textit{console}. 
+Para o \textit{\gls{back-end}} é utilizado o \ac{slf4j} com saída para o Heroku.  Nos \textit{\glspl{log}}  do Heroku será possível visualizar: 
+\begin{itemize}
+\item Logs do aplicativo através do comando “--source app”;
+\item Registros do sistema através do comando “--source heroku”;
+\item Logs de \textit{\ac{api}} através do comando “--source app --dyno api”.
+\end{itemize}
+
+
+No \textit{front-end} é utilizado o \textit{\gls{cloud-logging}} do \textit{Firebase Hosting} com o padrão de objeto console recomendado para desenvolvimento \textit{web}. Com essa ferramenta é possível visualizar:
+\begin{itemize}
+\item Logs com nível de registro INFO com os comandos "console.log()" e console.info();
+\item Logs com nível de registro ERROS com os comandos "console.warn()" e "console.error()";
+\item Mensagens internas com nível de registro DEBUG.
+\end{itemize}
+
+\subsection{Integração contínua}
+O processo de integração contínua se inicia a partir da liberação de uma nova funcionalidade. Através do \textit{\gls{pull-request}}, os desenvolvedores serão notificados da necessidade de realizar o \textit{\gls{merge}}. Neste momento, a equipe deve se reunir para realizar a revisão do código. Esta revisão inclui a análise dos resultados dos testes configurados, caso todas as métricas de código seja atingida, é realizado um \textit{\gls{merge}} com a \textit{\gls{branch-develop}}. 
+
+
+Quando houver a necessidade de realizar o \textit{\gls{deploy}} da aplicação, basta apenas realizar o \textit{merge} com a \textit{branch develop}. Nela, a \textit{\gls{build}} da aplicação é feita de forma automática e a aplicação é atualizada no servidor. 
+
+
+A ferramenta usada para automatizar o processo de \textit{\gls{build}} de aplicação e apoiar a equipe no processo de \ac{ci} e \ac{cd} é o Travis CI.
+
+
+\subsection{\textit{Coding Convention}}
+Para a solução serão adotadas as diretrizes padrões da própria linguagem de programação descritas nas seguintes documentações:
+
+\begin{itemize}
+\item Back-end: sintaxe da linguagem Java  apresentados descritos na documentação Java Code Conventions \cite{javacodeconvention:1997};
+\item Front-End: sintaxe descrita no guia de estilo de codificação na documentação do angular \cite{angularstyleguide:2021}.
+\end{itemize}
+
+
+Utilizar as convenções de códigos padrões é de extrema importância para a manutenibilidade da aplicação, pois tornam o código mais legível e facilitam o entendimento de desenvolvedores que futuramente poderão se tornar responsáveis por manter o software.
+
+
+
+\subsection{\textit{Design Pattern}}
+Para a aplicação será adotado o padrão de projeto Adapter. Este padrão do tipo estrutural é utilizado quando existe a necessidade de unir duas interfaces independentes ou incompatíveis. Na aplicação, ele é utilizado na implementação do Firebase Authentication, de modo a garantir uma substituição por outro serviço de autenticação de modo fácil diante de uma futura necessidade.
+%--- Removido em 25/07
+%\item  Observer: este padrão de projeto do tipo comportamental define um mecanismo de assinatura que notifica os objetos observadores a respeito dos eventos que acontecem a um objeto observado. 
+%Este padrão é amplamente utilizado pelo Angular. Nele, os observáveis apoiam a transmissão de mensagens entre os componentes da aplicação, sejam elas mensagens literais, mensagens ou eventos;
+
+\subsection{\textit{Swagger}}
+Para uma melhor documentação do código e testagem manual dos métodos da API, foi utilizada a ferramenta \textit{Swagger}. Nela, pode ser encontrada detalhes sobre a API desenvolvida.
+
+

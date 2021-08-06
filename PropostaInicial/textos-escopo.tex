@@ -1,0 +1,66 @@
+\chapter{Escopo}
+A proposta de projeto é uma aplicação web voltada para auxiliar no acompanhamento da evolução no rendimento dos alunos nas atividades escolares.
+
+Considerando a rotina básica das escolas de ensino fundamental no Brasil, a aplicação contará com o módulo de cadastros que permitirá que o usuário (coordenador, diretor ou pedagogo) realize o cadastro de turmas, disciplinas, gestores e alunos.
+
+Além da configuração básica, o gestor poderá atribuir os professores e alunos às turmas e disciplinas previamente cadastradas. Ademais, deverá configurar a estrutura de conquistas e os parâmetros para que sejam alcançados pelos alunos.
+
+Ao acessar a aplicação, o professor poderá visualizar as turmas e disciplinas atribuídas a ele. Para cada turma/disciplina ele poderá visualizar o ranking dos alunos, inserir e receber as atividades deles.
+
+Quando o aluno acessar a aplicação, o mesmo poderá visualizar as atividades pendentes e o painel de conquistas que apresentará as conquistas alcançadas e não alcançadas por ele. Ademais, poderá visualizar o ranking da turma, sua posição em relação aos seus amigos e a pontuação necessária para que ele suba para a liga (tiers) imediatamente mais alta.
+
+A aplicação também fornecerá um dashboard que conterá gráficos com visões gerenciais que indicam o desempenho por turma e por aluno. Esse dashboard estará disponível apenas para  usuários com o perfil gestor.
+As funcionalidades a serem implementadas estão descritas com mais detalhes nos subcapítulos a seguir. 
+
+\section{Funcionalidades}
+\subsection{Login e perfis}
+O módulo de acesso permitirá que usuários cadastrados acessem o sistema; todos os processos relacionados à definição e reinicialização de senha estão contemplados neste módulo. Também será possível definir, para um determinado perfil, quais são as suas permissões de acesso.
+Inicialmente, contempla-se nesta proposta três categorias de perfil de acesso: 
+
+\begin{itemize}
+\item Perfil aluno: poderá acessar as disciplinas referentes à turma que ele foi inserido, painel de atividades, painel de conquistas, sua posição no ranking e os alunos que ocupam os três primeiros lugares de cada liga (tiers).
+\item Perfil professor: poderá visualizar as turmas atribuídas a ele e o ranking da turma. Será responsável por postar as atividades e ao corrigi-las, atribuir a pontuação para os alunos.
+\item Perfil gestor: poderá visualizar todas as turmas cadastradas, o ranking de cada uma delas e o dashboard. Será responsável por realizar os cadastros e parametrizações do sistema.
+\end{itemize}
+
+\subsection{Cadastros/Dados mestres}
+Segundo os objetivos do projeto, são listados abaixo os cadastros básicos, essenciais ao funcionamento do sistema em questão. Para cada cadastro, o sistema deve permitir a inserção, listagem, alteração e exclusão (ou inativação) de registros. 
+\begin{itemize}
+\item Usuários: contempla os dados dos usuários que acessarão o sistema (gestores, professores e alunos).
+\item Turmas/disciplinas: contempla os dados das turmas/disciplinas da escola;
+\item Conquistas: contempla os dados das conquistas. Ao cadastrar uma conquista, o gestor deverá definir a recompensa pela sua conquista, o seu nível e os critérios para alcançá-la.
+\item Atividades: contempla os dados das atividades. Uma atividade poderá gerar um entregável ou não.
+\end{itemize}
+
+\subsection{Parametrização de turmas}
+O gestor deverá utilizar esta funcionalidade para atribuir a cada turma, o professor responsável e os alunos. Para cada turma poderá ser atribuído um único professor. No caso de uma disciplina compartilhar mais de um professor, o gestor deverá criar uma disciplina para a mesma turma para cada professor e dividir os alunos entre elas. 
+\subsection{Painel de turmas/disciplinas}
+Este painel será exibido assim que o usuário acessar aplicação. Ele consiste em uma grade de botões que darão acesso ao ambiente da disciplina. Este painel estará disponível para as três visões previstas neste projeto, porém as turmas a serem listadas serão restringidas da seguinte forma:
+\begin{itemize}
+\item Visão do aluno: listará somente as disciplinas da turma no qual foi inserido.
+\item Visão do professor: listará somente as turmas/disciplinas atribuídas a ele.
+\item Visão do gestor: listará todas as turmas/disciplinas cadastradas.
+\end{itemize}
+
+\subsection{Módulo de atividades}
+Este módulo será disponibilizado no ambiente da disciplina e será utilizado por professores e alunos. Através dele, o professor poderá postar as atividades e atribuir notas. Ao postar uma atividade o professor poderá informar a pontuação e o prazo de entrega. Caso a atividade possua um entregável, o professor deverá indicar também no momento do cadastro.
+
+Para os alunos, ao acessar esta seção, ele poderá visualizar as atividades postadas pelo professor. Ao realizar uma atividade que necessita de um entregável, o aluno deverá realizar o upload de um arquivo no formato especificado pelo professor na descrição da atividade, após a confirmação da entrega atividade ganhará um status “Pendente de avaliação”. Somente após a avaliação do professor, a atividade será marcada como concluída.
+
+As atividades criadas que não geram entregáveis está ligada ao ensino presencial na qual, ao passar uma atividade na sala, ou um dever de casa, o aluno mostrará a apostila para o professor, e ele dará o seu “visto” pela aplicação. 
+\subsection{Painel de conquistas}
+O painel de conquista estará disponível para o aluno. Cada aluno terá seu próprio painel de conquistas, e nele o aluno poderá visualizar as conquistas atingidas, as pendentes e as bloqueadas. 
+
+O aluno poderá alcançar somente as conquistas atreladas a liga que ele se encontra e as imediatamente abaixo. A cada liga, as conquistas ficam mais difíceis de alcançar, porém as recompensas serão maiores. 
+\subsection{Ranking de alunos por liga}
+O sistema de ranqueamento do sistema Turma de Elite contemplará três ligas, sendo elas: bronze, prata e ouro. Cada liga conterá um ranking disponibilizado em duas visões (ranking por disciplina e ranking geral). Sempre ao final de um período pré-determinado, os três primeiros colocados de um ranking que possuem a pontuação mínima requerida pela liga superior, ganham um lugar na próxima liga, enquanto os três últimos descem para uma liga inferior.
+
+Assim como o painel de turmas/ disciplina, os rankings estarão disponíveis para todos os usuários, porém de forma restringida dependendo do perfil.
+\begin{itemize}
+\item Visão do aluno: visualizará apenas os rankings referente à turma no qual o aluno está inserido. Em cada ranking o aluno saberá apenas o nome dos três primeiros colocados de cada liga e a sua posição caso ele não esteja entre os primeiros.
+\item Visão do professor: visualizará os rankings das turmas atribuídas a ele. Em cada ranking, o professor poderá ver todos os alunos e suas respectivas posições.
+\item Visão do gestor: visualizará os rankings se todas as turmas ativas na aplicação. Em cada ranking, o gestor poderá ver todos os alunos e suas respectivas posições.
+\end{itemize}
+
+\subsection{Dashboard}
+A aplicação também disponibilizará relatórios gerenciais para o perfil gestor como: histórico de desempenho por turma e por aluno.

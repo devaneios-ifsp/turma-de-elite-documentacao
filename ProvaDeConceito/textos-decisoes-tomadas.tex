@@ -1,0 +1,18 @@
+\chapter[Decisões Tomadas]{Decisões Tomadas}
+Para a escolha do front-end, back-end, banco de dados, Firebase Authentication e envio de e-mails, levaram-se em consideração alguns critérios.
+
+\section{Front-end}
+Sendo uma aplicação de acesso restrito, consequentemente não necessitando de SEO, soluções de desenvolvimento SPA poderiam ser utilizadas no projeto com maior facilidade. Logo, o framework Angular foi escolhido. Ele provê uma forma de escrever aplicações em que o projeto pode escalar de tamanho sem perder produtividade no desenvolvimento. Também possui ecossistema, que vai desde o linting até a biblioteca de componentes, totalmente integrados e, com exceção da biblioteca de componentes, possui mínima dependência de bibliotecas externas ao framework.
+
+\section{Back-end}
+Para o back-end, a solução escolhida não necessitaria apresentar características específicas, como quantidade massiva de acessos simultâneos, alta concorrência, entre outros, a escolha foi pautada na experiência dos integrantes do grupo. Como a linguagem orientada a objetos que todos os integrantes do grupo já tinham estudado era o Java, ela foi escolhida. O framework a ser escolhido, deveria ser um que agilizaria o desenvolvimento, fosse de fácil aprendizado e que tivesse um bom suporte pela equipe que o desenvolveu, além de ser bem aceito pela comunidade. O framework que cumpria estes requisitos e que ainda tinha integrantes do grupo com experiência, foi o Spring.
+
+\section{Banco de dados}
+Como o banco de dados não possuía requisitos especiais de leitura e escrita, um banco de dados relacional seria a melhor escolha. Por experiência da equipe e por ser open-source, o banco de dados MySQL foi escolhido.
+
+\section{Firebase Authentication}
+Para que a aplicação não guardasse as senhas de seus usuários e a equipe não precisasse construir um sistema de autenticação seguro e de fácil integração ao Angular + Spring, que fornecesse formas de autenticar utilizando sistemas externos (Facebook, Google, Twitter), o Firebase Authentication foi escolhido como solução de autenticação.
+
+
+\section{Envio de e-mails}
+O envio de e-mails utilizando o Gmail, foi escolhido por ser o provedor mais fácil de ser utilizado e pelos integrantes do grupo possuírem experiência com a utilização do Gmail para tal.
