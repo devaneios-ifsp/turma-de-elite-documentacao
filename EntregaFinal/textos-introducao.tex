@@ -1,0 +1,68 @@
+\chapter[Introdução]{Introdução}
+A participação dos alunos nas aulas e atividades escolares é essencial para a evolução do aprendizado. Porém, é possível observar que apenas a rotina de horas de aula combinada a um grande volume de atividades com poucas recompensas imediatas tendem a fazer com que os estudos se tornem maçantes para a maioria dos alunos, resultando na falta de motivação para desempenhar suas obrigações escolares.
+
+
+No contexto educacional brasileiro, sabe-se que embora as escolas sejam obrigadas a seguir uma grade fixa de disciplinas e conteúdos de base, cada instituição possui sua maneira única de ofertá-lo aos seus alunos. Deste modo, surgiu o interesse de desenvolver uma solução que aplique conceitos de \textit{gamificação} na educação para motivar os alunos, mas que ao mesmo tempo seja flexível às necessidades dos diferentes clientes. 
+
+
+Ademais, partindo de uma base de dados que será alimentada ao longo da utilização da aplicação, será possível desenvolver visões gerenciais que permitam aos diretores, pedagogos e professores acompanharem a evolução dos seus alunos, bem como diagnosticarem possíveis problemas e tomarem decisões para superá-los.
+
+\section{Objetivos}
+Este projeto visa desenvolver o sistema Turma de Elite, uma aplicação de gerenciamento de aprendizado que tem como objetivo integrar conceitos de \textit{gamificação} ao ensino, e deste modo se tornar uma ferramenta que busca auxiliar todo corpo docente e discente de uma instituição escolar.
+
+
+Para o corpo docente, a ferramenta contará com funcionalidades que permitam acompanhar o desenvolvimento do aluno e modelar desafios, atividades e recompensas.
+
+
+Para o corpo discente, a aplicação implementará funcionalidades que buscam promover o engajamento dos alunos nas aulas, acrescentando ao processo de realizar exercícios e avaliações, uma dinâmica semelhante aos jogos atuais onde ao completar um desafio, ganham-se recompensas, aumenta-se de nível e desbloqueia novos desafios.
+
+De modo geral, o projeto Turma de Elite tem a missão de promover um maior interesse dos alunos nos estudos por meio do aumento de fatores motivacionais na realização de tarefas, utilizando a \textit{gamificação} como elemento auxiliador nesse processo.
+
+Tendo em vista a inserção tecnológica ocorrendo cada vez mais cedo na sociedade, coloca-se como objetivo secundário a maior disseminação da tecnologia no ambiente estudantil, de maneira benéfica.
+
+\section{Justificativa}
+Atualmente já é possível encontrar plataformas educacionais online que aplicam o conceito de \textit{gamificação} para promover a aprendizagem do aluno. Entretanto, ao analisar as soluções existentes no mercado, percebe-se que a maioria possui uma deficiência em comum, não possuir código aberto. Este tipo de aplicação faz com que o usuário da tecnologia proprietária sofra o chamado aprisionamento tecnológico, onde o usuário se torna dependente do fornecedor, não podendo trocar de fornecedor, se necessário, sem um custo adicional considerável, portanto o usuário perde liberdade, flexibilidade e escalabilidade (\textit{\gls{vendor-lock-in}}). Por isso, esta aplicação será de código aberto, com isso, o usuário poderá transferir suas informações para outro provedor ou para um provedor próprio por um baixo custo.
+
+
+\section{Análise de concorrência}
+Entre os principais concorrentes diretos do sistemas pode-se citar:
+
+\begin{itemize}
+
+\item {\textit{Khan Academy}:} utiliza conceitos de \textit{gamificação} para a execução de atividades, nota-se que ela não utiliza o conceito de \textit{\glspl{tier}} para ranquear os alunos, por exemplo. Esse conceito compreende o agrupamento de estudantes em ligas diferentes de acordo com o desempenho. Outro diferencial da aplicação Turma de Elite em relação ao \textit{Khan Academy}, são as funcionalidades de customização de atividades, parametrização de turmas e conquistas que permitem que a Turma de Elite se adapte não só a diferentes escolas como também às categorias de ensino remoto e à distância;
+
+\item {\textit{Academy LMS}:} possui suporte para múltiplas visões de usuário.
+Entretanto, como ela não possui código aberto, uma forma de obtenção de lucro encontrada foi a cobrança por meio de uma assinatura;
+
+\item{\textit{Axonify}:} possui algumas funcionalidades que podem ser interessantes para os alunos no que diz respeito à implementação de \textit{gamificação}, como pontos, conquistas, medalhas e \textit{\glspl{ranking}}. Entretanto, tal solução também não possui código aberto, nem visão para um administrador;
+
+\item{\textit{Matrix LMS}:} aparenta ser a solução mais completa, uma vez que possui todas as visões de usuário que a Turma de Elite pretende implementar (aluno, professor e gestor). Entretanto, uma grande desvantagem dela é o custo, uma vez que, além de uma assinatura a ser cobrada para continuar utilizando a plataforma, os materiais oferecidos também são pagos;
+
+\item{\textit{Talent LMS}:} pode-se constatar algumas ausências importantes para um sistema de aprendizagem gamificado, como a premiação com medalhas. Apesar disso, esse sistema compensa tal ausência com a implementação de pontos e níveis;
+
+
+\item{\textit{Moodle} + \textit{Level Up}!:} uma outra opção possível para gamificar o ensino é a incorporação de um \textit{\gls{plugin}} que ofereça ferramentas de gamificação a um sistema de \textit{\ac{lms}} já consolidado no mercado. Ao analisar as funcionalidades de um \textit{\gls{plugin}} de \textit{gamificação} \textit{\gls{open-source}} chamado \textit{"Level Up!"}, nota-se que ele não contempla algumas funcionalidades para sua utilização no contexto de gestão de uma instituição de ensino, como a visão de gestor, por exemplo.
+
+\end{itemize}
+
+Para uma melhor visualização, o \autoref{quadro-analise-comparativa} contém a comparação sintetizada de todos os sistemas analisados.
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption{\label{quadro-analise-comparativa}Análise comparativa entre as plataformas de gestão de aprendizado}
+\begin{tabular}{|m{2.3cm}|m{1.8cm}|m{1.8cm}|m{1.5cm}|m{1.5cm}|m{1.2cm}|m{1.5cm}|m{1.3cm}|m{1.8cm}}
+\hline
+{\thead{}} & \thead{Khan\\ Academy} & \thead{Academy\\ LMS} & \thead{Axonify} & \thead{Matrix \\LMS} & 
+\thead{Talent \\ LMS} & 
+\thead{Moodle \\+ Level\\ Up!} &
+\thead{Turma\\ de \\elite} \\ \hline
+    Código aberto               &   &   &   &   &   & X & X               \\ \hline
+    Customização de atividades  &   & X & X & X & X & X & X               \\\hline
+    Medalhas                    & X & X & X & X & X & X & X               \\ \hline
+    Tiers / ligas               &   &   &   &   &   &   & X               \\ \hline
+    Leaderboards                & X & X & X & X & X & X & X               \\ \hline
+    Visão do Gestor             &   &   &   & X &   &   & X \\ \hline   
+\end{tabular}
+\fonte{Os autores}
+\end{quadro}

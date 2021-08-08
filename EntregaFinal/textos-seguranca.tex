@@ -1,0 +1,34 @@
+\section {Critérios de Segurança, Privacidade e Legislação}
+A segurança deve ser uma prioridade no desenvolvimento de uma aplicação, pois falhas na comunicação entre os componentes da solução ou no armazenamento dos dados pode atrapalhar o funcionamento ou até ser fonte de um vazamento de dados em casos mais graves. 
+
+\subsection{Lei Geral de Proteção de Dados}
+Todos os dados e informações pessoais inseridas para cadastramento serão mantidos em sigilo pelo sistema, como previsto na \ac{lgpd}.
+
+A \ac{lgpd} foi criada com o intuito de padronizar normas e práticas, para promover mais segurança aos dados pessoais e garantir segurança jurídica. Ela propõe que o cidadão deve ter o consentimento de que seus dados estão sendo tratados, salvo exceções como o cumprimento de uma obrigação legal ou a prevenção de fraudes contra o titular.
+
+Essa lei garante ao cidadão mais controle sobre seus dados como possibilidade de solicitar que seus dados sejam deletados ou de transferir os dados para outros serviços. Em relação ao tratamento desses dados, essa lei estipula que ele deve ser feito com base em finalidades e necessidades definidas e que elas devem ser informadas aos cidadãos. Também foram definidas normas de governança, medidas de segurança e boas práticas para a administração de riscos, falhas e de resolução de incidentes. Além disso estão previstas penalidades, de acordo com os danos causados, para possíveis incidentes \cite{lgpd-serpro:2018}.
+
+\subsection {Pilares da Segurança da Informação}
+Para realizar a proteção de dados, seguiu-se alguns pontos vitais para que os dados estejam guardados da maneira mais segura possível, ou seja, seguiu-se os Pilares da Segurança da Informação, que são:
+
+\begin{itemize}
+\item \textbf{Confidencialidade}: garante que as informações estarão acessíveis somente para pessoas autorizadas, exigindo autenticação para restringir acessos;
+\item \textbf{Integridade}: mantém a origem das informações conforme foram armazenadas, sem alterá-las;
+\item \textbf{Disponibilidade}: faz com que os dados estejam disponíveis para usuários autorizados a qualquer momento que for necessário;
+\item \textbf{Autenticidade}: identifica e registra usuários que estejam enviando ou modificando informações, para que essa ação seja documentada.
+\item \textbf{Irretratabilidade}: garante que uma pessoa não possa negar a autoria da informação fornecida, ou seja, provar o que foi feito, quem e quando fez determinada ação em um sistema. 
+\end{itemize}
+
+\subsection {Protocolos}
+O protocolo \ac{https} é utilizado para o envio e recebimento de informações entre os usuários e os servidores. O \ac{https} é a versão criptografada do \ac{http} e utiliza os protocolos \ac{ssl}/\ac{tls} para garantir que dados, depois de enviados, não sejam interceptados, lidos ou alterados por terceiros e evita a visualização de dados privados e/ou sensíveis que podem ter sidos enviados, além disso, indica ao navegador que o site é protegido pelo certificado \ac{ssl} o que garante ao site, além da segurança, mais credibilidade. 
+
+Esses certificados garantem ao usuário autenticidade, privacidade e integridade dos dados, pois eles são criptografados. O protocolo \ac{tls} utiliza a criptografia simétrica para cada criptografar os dados enviados em cada conexão, codificando qualquer mensagem que é transmitida entre o usuário e o servidor, que possuem as chaves públicas e privadas da conexão, com isso apenas o emissor e o receptor tem acesso ao conteúdo da mensagem.
+
+\subsection {Ferramentas para Segurança}
+Para validar a qualidade do projeto em termos de segurança, as URLs do \gls{back-end} e do \gls{front-end} foram submetidas aos testes do SecurityHeaders e do SSL Labs. 
+
+Os Apêndices \ref{ssltest-backend} e \ref{ssltest-frontend} representam os resultados obtidos nos testes do \gls{back-end} e do \gls{front-end}, respectivamente.
+
+Ao observar os resultados do SecurityHeaders tanto do \gls{back-end} quanto do \gls{front-end}, pode-se perceber que a nota atribuída foi A, mostrando que os códigos passaram nos testes. 
+
+No caso das notas do SSL, o \gls{front-end} recebeu a nota máxima, entretanto o \gls{back-end} da aplicação recebeu uma nota B, sobretudo devido à utilização da hospedagem gratuita do Heroku, que não fornece certos certificados para atingir a nota máxima dessa plataforma. Então, para resolver essa situação seria necessário um certificado externo. 
