@@ -23,7 +23,7 @@ Os requisitos funcionais levantados são descritos no \autoref{quadro-requisitos
     RF05 & O sistema deve permitir uma definição de senha no primeiro acesso &  Essencial   \\ \hline
     RF06 &  O sistema deve permitir a realização do login & Essencial \\ \hline  
     RF07 &  O sistema deve permitir a recuperação de senha &  Essencial \\ \hline 
-    RF08 &  O sistema deve permitir a revogação o acesso de um administrador e de um gestor &  Essencial  \\ \hline   
+    RF08 &  O sistema deve permitir a revogação do acesso de um administrador e de um gestor &  Essencial  \\ \hline   
     RF09 &  O sistema deve permitir a desativação de uma escola &  Essencial \\ \hline
     RF10 &  O sistema deve permitir o cadastro de turmas pelo gestor & Essencial  \\ \hline    
     RF11 &  O sistema deve permitir o cadastro de professores pelo gestor & Essencial  \\ \hline    
@@ -720,7 +720,7 @@ A tabela \textit{student\_class\_membership} representa o relacionamento de muit
      \hline
       class\_id & Chave estrangeira que referencia a turma & BIGINT & & & & class(id) \\
     \hline
-    is\_active & Atributo que define se o estudante ainda faz parte de uma turma determinada turma, sendo verdadeiro o valor padrão para esse atributo & BOOLEAN & & & DEFAULT TRUE & \\
+    is\_active & Atributo que define se o estudante ainda faz parte de uma determinada turma, sendo verdadeiro o valor padrão para esse atributo & BOOLEAN & & & DEFAULT TRUE & \\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
