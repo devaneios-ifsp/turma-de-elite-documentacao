@@ -771,7 +771,7 @@ A tabela \textit{teacher\_class\_membership} representa o relacionamento de muit
 \end{quadro}
 \FloatBarrier
 
-A tabela \textit{user \_credentials} contém todos os dados pessoais dos usuários da aplicação, determinando o papel e, consequentemente, o nível de acesso de cada tipo de usuário por meio do campo \textit{role}, uma enumeração que possui os quatro tipos de usuário disponibilizados pela plataforma (administrador, gestor, professor e aluno). O \autoref{quadro-tabelabd-usercredentials} apresenta os atributos referentes a essa tabela. 
+A tabela \textit{user\_credentials} contém todos os dados pessoais dos usuários da aplicação, determinando o papel e, consequentemente, o nível de acesso de cada tipo de usuário por meio do campo \textit{role}, uma enumeração que possui os quatro tipos de usuário disponibilizados pela plataforma (administrador, gestor, professor e aluno). O \autoref{quadro-tabelabd-usercredentials} apresenta os atributos referentes a essa tabela. 
 
 \begin{quadro}[htb]
 \centering
@@ -800,6 +800,45 @@ A tabela \textit{user \_credentials} contém todos os dados pessoais dos usuári
 \legend{Fonte: Os autores}
 \end{quadro}
 \FloatBarrier
+
+Além das tabelas pertencentes ao sistema, algumas tabelas do Moodle serão utilizadas para coleta de dados relacionados as atividades entregues pelos alunos. O \autoref{quadro-tabelas-moodle} lista as entidades que estão previstas para serem integradas ao sistema.
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption[Tabelas do Moodle previstas para integração]{Tabelas do Moodle previstas para integração}
+\label{quadro-tabelas-moodle}
+\begin{tabular}{|p{4.5cm}|}
+  \hline
+   \thead{Tabelas} \\
+    \hline
+    achievement \\
+    \hline
+    activity \\
+    \hline
+    activity\_delivery \\
+    \hline
+    class \\
+    \hline
+    manager \\
+    \hline
+    school \\
+    \hline
+    student \\
+    \hline
+    student\_class\_membership \\
+    \hline
+    teacher \\
+    \hline
+    teacher\_class\_membership \\
+    \hline
+    user\_credentials \\
+    \hline
+\end{tabular}
+\legend{Fonte: Os autores}
+\end{quadro}
+\FloatBarrier
+
 
 \subsection{Telas de Protótipos}
 Para facilitar a visualização de como ficaria a aplicação até o mínimo produto viável, foram desenvolvidos telas de protótipos de alta fidelidade. Tais telas são apresentadas no \autoref{prototipos}, divididos segundo a visão do administrador, do professor e do aluno.

@@ -9,10 +9,10 @@ O \textit{Scrum} é um \textit{\gls{framework}} para gestão de projetos que tem
 Essa metodologia foi adotada devido à experiência da maioria dos integrantes da equipe, que utilizam esse \textit{\gls{framework}} no ambiente de trabalho, e também por ser uma metodologia que demonstra ser eficaz para um gerenciamento de projetos.
 
 
-No caso do projeto, as atividades de uma \textit{\gls{sprint}} são planejadas em uma \textit{Sprint Planning}, que é a primeira cerimônia e tem como principal objetivo a definição das entregas para o final da \textit{\gls{sprint}}. Nessa cerimônia, baseando-se nas histórias priorizadas no \textit{Product Backlog}, é criado o \textit{Sprint Backlog} em um arquivo em Excel, que contém as atividades e suas principais informações, como o responsável, o status, podendo ser \textit{To Do} (a fazer), \textit{Doing} (fazendo) e \textit{Done} (feito), e a data de conclusão. 
+No caso do projeto, as atividades de uma \textit{\gls{sprint}} são planejadas em uma \textit{Sprint Planning}, que é a primeira cerimônia e tem como principal objetivo a definição das atividades até o final da \textit{\gls{sprint}}. Nessa cerimônia, baseando-se nas histórias priorizadas no \textit{Product Backlog} e nas pontuações de cada atividade, é criado o \textit{Sprint Backlog} para a respectiva \textit{\gls{sprint}}. E para auxiliar na visualização das tarefas e melhor controle das entregas, foi utilizado, para a criação do Sprint Backlog, o Kanban do GitHub, no qual possui três colunas: uma de To Do (a fazer), outra de Doing (fazendo) e outra de Done (feito). 
 
 
-Após o planejamento da \textit{\gls{sprint}}, a execução das atividades é iniciada. A \textit{\gls{daily}} é feita através do aplicativo \textit{\gls{notion}}, no qual cada integrante coloca as atividades feitas no dia, os próximos passos e os impedimentos, caso houver. Além disso, reuniões de acompanhamento são feitas para ver o andamento do projeto e alinhamento das expectativas da \textit{\gls{sprint}}. Desse modo, esses \textit{\glspl{checkpoint}} semanais acontecem todas as terças-feiras às 19:30 ao longo da sprint. 
+Após o planejamento da \textit{\gls{sprint}}, a execução das atividades é iniciada. Assim, reuniões semanais de acompanhamento são feitas para ver o andamento do projeto, alinhamento das expectativas da \textit{\gls{sprint}} e identificação de possíveis impedimentos. Desse modo, esses \textit{\glspl{checkpoint}} semanais acontecem todas as terças-feiras às 19:30 ao longo da \textit{\gls{sprint}}. 
 
 No último dia da \textit{\gls{sprint}}, às 19h30, é feita uma reunião para revisão das entregas, a chamada \textit{Sprint Review}, na qual é identificado o que foi entregue com sucesso, o que não foi concluído e também possíveis mudanças no \textit{\gls{product-backlog}}. 
 
@@ -73,35 +73,47 @@ Baseando-se no Scrum, a gestão do tempo será feita pelas \textit{\glspl{sprint
 \end{quadro}
 \FloatBarrier
 
+Com a definição das datas para cada \textit{\gls{sprint}}, foi possível elaborar um gráfico de Gantt para o projeto. A \autoref{cronograma} demonstra as entregas esperadas para cada \textit{\gls{sprint}}.
 
-As atividades priorizadas para cada \textit{\gls{sprint}} foram baseadas no cronograma da disciplina e podem ser visualizadas no \autoref{sprints-atividades}.
+
+\begin{PAGINA-A3}
+
+\begin{figure}[p]
+    \centering \includegraphics[height=\textheight,width=\textwidth,keepaspectratio]{imagens/Cronograma.png}
+	\caption{\label{cronograma}Gráfico de Gantt}
+   \fonte{Os autores}
+\end{figure}
+
+\end{PAGINA-A3}
+
+As atividades de cada uma das \textit{\glspl{sprint}} planejadas podem ser visualizadas no \autoref{sprints-atividades}.
 
 
 \section{Métricas}
-Uma vez por mês, foram levantados métricas a respeito do andamento do projeto. O \autoref{quadro-metricas} representa os resultados obtidos.
+Uma vez por mês, foram levantados métricas cumulativas a respeito do andamento do projeto. O \autoref{quadro-metricas} representa os resultados obtidos.
 \begin{quadro}[htb]
 \centering
 \ABNTEXfontereduzida
 \caption{\label{quadro-metricas}Métricas Gerais}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
    \hline
-   \thead{Métricas} & \thead{Maio} \footnote[ 1]{Começo em 10 de maio} & \thead{Junho}  & \thead{Julho}\footnote[ 2]{Medido até dia 18 de julho}   \\\hline
-    Reuniões & 5 & 5 & 2 \\\hline
-    Vídeos & 1 & 2 & 1 \\\hline
-    Postagens no blog & 3 & 4 & 3 \\\hline
-    Arquivos na pasta do SVN & 11 & 99 & 119 \\\hline
-    Commits & 3 & 25 & 56 \\\hline
-    Entidades no back-end & 1 & 2 & 11 \\\hline
-    Linhas de código & 13 & 15859 & 25347 \\\hline
+   \thead{Métricas} & \thead{Maio}\footnote{Começo em 10 de maio} & \thead{Junho}  & \thead{Julho} & \thead{Agosto}\footnote{Medido até dia 08 de agosto}   \\\hline
+    Reuniões & 5 & 10 & 15 & 16\\\hline
+    Vídeos & 1 & 4 & 7 & 7 \\\hline
+    Publicações no blog & 3 & 7 & 12 & 14 \\\hline
+    Arquivos na pasta do SVN & 11 & 99 & 486 & 546 \\\hline
+    Commits & 3 & 25 & 108 & 225 \\\hline
+    Entidades no back-end & 1 & 2 & 11 & 15 \\\hline
+    Linhas de código & 13 & 15859 & 112453 & 168757\\\hline
 \end{tabular}
 \fonte{Os autores}
 \end{quadro}
 \FloatBarrier
 
-\subsection{Relatórios StatSVN}
+\subsection{StatSVN}
 A ferramenta \textit{StatSVN} foi utilizada para extrair relatórios a respeito do histórico do repositório da equipe no \gls{svn} e assim pôde-se obter dados estatísticos a respeito do desenvolvimento do projeto.
 
-As Figuras \ref{fig:activity} e \ref{fig:commitsauthors} demonstram, respectivamente, as atividades dos integrantes da equipe e os \textit{commits} realizados por eles. Com esses gráficos, torna-se evidente que apenas dois integrantes atualizaram o repositório. Isso aconteceu porque o principal repositório usado para o versionamento de código foi o \textit{GitHub}, mas como o \gls{svn} é um dos requisitos para a disciplina, dois integrantes ficaram responsáveis por atualizar o repositório.
+As Figuras \ref{fig:activity} e \ref{fig:commitsauthors} demonstram, respectivamente, as atividades dos integrantes da equipe e os \textit{commits} realizados por eles. Com esses gráficos, torna-se evidente que apenas a Bianca e o Natan atualizaram o repositório. Isso aconteceu porque a principal ferramenta usada para o versionamento de código foi o \textit{GitHub}, mas como o \gls{svn} é um dos requisitos para a disciplina, eles ficaram responsáveis por atualizar o repositório. Ao final do período, o Luiz passou a ajudar na subida dos arquivos em LaTeX para o \gls{svn}.
 \begin{figure}[htb]
     \centering
 	\includegraphics[width=16cm]{imagens/activity.png}
@@ -138,7 +150,7 @@ A \autoref{fig:time} demonstra os \textit{commits} da equipe por horas do dia. C
 \end{figure}
 \FloatBarrier
 
-A \autoref{fig:loc} demonstra a quantidade de linhas de código pelos dias ao longo dos meses. Com esse gráfico, é possível observar uma pequena curva de crescimento no início do projeto e um crescimento acentuado no dia 28 de junho, isso aconteceu pois na fase inicial do projeto, subiram-se apenas as documentações e, a partir do dia 28 de junho, passou-se a atualizar o \gls{svn} com o desenvolvimento do projeto.
+A \autoref{fig:loc} demonstra a quantidade de linhas de código pelos dias ao longo dos meses. Com esse gráfico, é possível observar elevadas curvas de crescimento espaçadas, demonstrando os dias que o repositório era atualizado.
 
 \begin{figure}[htb]
     \centering
@@ -147,5 +159,27 @@ A \autoref{fig:loc} demonstra a quantidade de linhas de código pelos dias ao lo
 	\fonte{Os autores}
 \end{figure}
 \FloatBarrier
+
+\subsection{\textit{GitHub}}
+Como o \textit{GitHub} foi a principal ferramenta para versionamento do código, convém demonstrar as métricas geradas por ele. As Figuras \ref{git-backend} e \ref{git-frontend} representam, respectivamente, as métricas do repositório do \textit{\gls{back-end}} e do repositório do \textit{\gls{front-end}}.
+
+\begin{figure}[htb]
+    \centering
+	\includegraphics[width=16cm]{imagens/MetricasGitBack.png}
+	\caption{\label{git-backend} Métricas do repositório do \textit{back-end} geradas pelo GitHub}
+	\fonte{Os autores}
+\end{figure}
+\FloatBarrier
+
+
+\begin{figure}[htb]
+    \centering
+	\includegraphics[width=16cm]{imagens/MetricasGitFront.png}
+	\caption{\label{git-frontend} Métricas do repositório do \textit{front-end} geradas pelo GitHub}
+	\fonte{Os autores}
+\end{figure}
+\FloatBarrier
+
+Com os gráficos, torna-se nítido que o André foi a pessoa quem mais desenvolveu ao longo do tempo, sobretudo devido ao fato de esse ser o seu principal foco desde o começo e por apresentar um conhecimento técnico superior aos demais integrantes da equipe. A Patrícia cuidou mais da parte do \textit{\gls{front-end}}, sobretudo da cobertura de testes. E o Natan e o Gustavo auxiliaram na resolução de \textit{bugs} que apareciam.
 
 \input{EntregaFinal/textos-links-de-acesso}
