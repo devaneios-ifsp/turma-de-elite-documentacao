@@ -23,7 +23,7 @@ Os requisitos funcionais levantados são descritos no \autoref{quadro-requisitos
     RF05 & O sistema deve permitir uma definição de senha no primeiro acesso &  Essencial   \\ \hline
     RF06 &  O sistema deve permitir a realização do login & Essencial \\ \hline  
     RF07 &  O sistema deve permitir a recuperação de senha &  Essencial \\ \hline 
-    RF08 &  O sistema deve permitir a revogação o acesso de um administrador e de um gestor &  Essencial  \\ \hline   
+    RF08 &  O sistema deve permitir a revogação de acesso de um administrador e de um gestor &  Essencial  \\ \hline   
     RF09 &  O sistema deve permitir a desativação de uma escola &  Essencial \\ \hline
     RF10 &  O sistema deve permitir o cadastro de turmas pelo gestor & Essencial  \\ \hline    
     RF11 &  O sistema deve permitir o cadastro de professores pelo gestor & Essencial  \\ \hline    
@@ -56,11 +56,10 @@ Os requisitos não funcionais levantados são descritos no \autoref{quadro-requi
 \begin{tabular}{|m{2.2cm}|m{9.6cm}|m{2.2cm}|}
 \hline
 {\thead{Identificador}} & \thead{Descrição} & \thead{Categoria}   \\ \hline
-    RNF01 & O sistema deve possuir telas responsivas &  Usabilidade \\ \hline
+    RNF01 & O sistema deve possuir telas responsivas para que o usuário possa ter a mesma experiência independente do dispositivo  &  Usabilidade \\ \hline
     RNF02 & O sistema deve seguir o protocolo HTTPS & Segurança \\\hline
     RNF03 & O sistema deve respeitar a LGPD & Segurança  \\ \hline
-    RNF04 & O sistema deve permitir a sua escalabilidade no futuro & Desempenho  \\ \hline
-    RNF05 & O sistema deve estar disponível sete dias por semana &  Disponibilidade   \\ \hline
+    RNF04 & O sistema deve permitir a sua escalabilidade no futuro por meio do código e da hospedagem escolhida & Desempenho  \\ \hline
 \end{tabular}
 \fonte{Os autores}
 \end{quadro}
@@ -87,6 +86,12 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \par Quando eu preencher algum dado incorretamente
         \par Então não conseguirei clicar no botão de Criar, pois o botão estará inativo
     \end{itemize}       
+    \begin{itemize}
+        \item Cenário: E-mail já cadastrado  
+        \par Dado que estou na tela de cadastro de usuários na visão do administrador
+        \par Quando eu preencher algum dado de um administrador que já está cadastrado no sistema
+        \par Então receberei uma mensagem que o e-mail já está cadastrado no sistema
+    \end{itemize}    
 
 \item\textbf{Funcionalidade}: Cadastro de escola
     
@@ -102,27 +107,17 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Cadastro mal sucedido  
         \par Dado que estou na tela de cadastro de escolas na visão do administrador
         \par Quando eu preencher algum dado incorretamente
-        \par Então não conseguirei clicar no botão de Criar
+        \par Então não conseguirei clicar no botão de Criar, pois o botão estará inativo
     \end{itemize}    
 
-\item\textbf{Funcionalidade}: Envio de e-mail
+\item\textbf{Funcionalidade}: \glspl{dashboard} do uso do sistema
     
-    Eu, como administrador, gostaria que, ao criar uma escola, fosse enviado um e-mail para o gestor com uma página para que ele complemente as informações da escola e do seu usuário.
-    \begin{itemize}
-        \item Cenário: Envio de e-mail para cadastro de escola 
-        \par Dado que estou na tela de escolas na visão do administrador
-        \par Quando eu criar uma nova escola
-        \par Então o gestor da escola receberá um e-mail para completar o cadastro de sua escola
-    \end{itemize}    
-
-\item\textbf{Funcionalidade}: Resumo do uso do sistema
-    
-    Eu, como administrador, quero visualizar um resumo do uso do sistema, para que eu possa tomar decisões com base no uso.
+    Eu, como administrador, quero visualizar a quantidade de professores, de alunos e de gestores cadastrados, para que eu possa tomar decisões com base nesses dados de quem está usando o sistema.
     \begin{itemize}
         \item Cenário: Visualização do uso do sistema 
         \par Dado que estou na tela de login
         \par Quando eu fazer o login com o perfil de administrador
-        \par Então conseguirei ver o resumo do uso do sistema
+        \par Então conseguirei ver as principais quantidades dos usuários que usam o sistema
     \end{itemize} 
 
 \item\textbf{Funcionalidade}: Primeiro acesso
@@ -131,8 +126,8 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
     \begin{itemize}
         \item Cenário: Definição de senha  
         \par Dado que o meu usuário já está cadastrado
-        \par E recebi o link de acesso à aplicação por e-mail
-        \par Quando eu clicar nesse link
+        \par E recebi o \gls{link} de acesso à aplicação por e-mail
+        \par Quando eu clicar nesse \gls{link}
         \par E ser redirecionado à tela de primeiro acesso
         \par Então conseguirei definir a minha senha
     \end{itemize}
@@ -163,8 +158,8 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \par Quando eu clicar no botão de esqueci a senha
         \par E digitar o e-mail válido
         \par E clicar em redefinir senha
-        \par Então receberei um e-mail com um novo link 
-        \par E por esse link serei redirecionado para uma tela de redefinição de senha
+        \par Então receberei um e-mail com um novo \gls{link} 
+        \par E por esse \gls{link} serei redirecionado para uma tela de redefinição de senha
         \par E conseguirei cadastrar uma nova senha
     \end{itemize}    
     \begin{itemize}
@@ -194,7 +189,7 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Alteração do gestor
         \par Dado que estou na tela de gestores na visão do administrador
         \par E selecionei o gestor que desejo desativar
-        \par Quando eu desselecionar o botão de ativo 
+        \par Quando eu desselecionar o botão de ativo
         \par E apertar o botão de Salvar
         \par Então receberei uma mensagem de gestor alterado com sucesso
     \end{itemize}  
@@ -206,7 +201,7 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Alteração da escola  
         \par Dado que estou na tela de cadastro de escolas na visão do administrador
         \par E selecionei a escola que desejo desativar
-        \par Quando eu desselecionar o botão de ativo 
+        \par Quando eu desselecionar o botão de ativo
         \par E apertar o botão de Salvar
         \par Então receberei uma mensagem de escola alterada com sucesso
     \end{itemize}   
@@ -225,7 +220,7 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Cadastro mal sucedido  
         \par Dado que estou na tela de cadastro de turmas na visão do gestor
         \par Quando eu preencher algum dado incorretamente
-        \par Então não conseguirei clicar no botão de Criar
+        \par Então não conseguirei clicar no botão de Criar, pois ele estará inativo
     \end{itemize}   
 
 \item\textbf{Funcionalidade}: Cadastro de professor
@@ -242,8 +237,43 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Cadastro mal sucedido  
         \par Dado que estou na tela de cadastro de professores na visão do gestor
         \par Quando eu preencher algum dado incorretamente
-        \par Então não conseguirei clicar no botão de Criar
+        \par Então não conseguirei clicar no botão de Criar, pois ele não estará ativo
     \end{itemize}   
+    \begin{itemize}
+        \item Cenário: E-mail já existente 
+        \par Dado que estou na tela de cadastro de professores na visão do gestor
+        \par Quando eu preencher os dados com um e-mail que já existe no sistema
+        \par Então não conseguirei clicar no botão de Criar, pois ele não estará ativo
+    \end{itemize}  
+
+\item\textbf{Funcionalidade}: Cadastro de aluno
+    
+    Eu, como gestor, gostaria de cadastrar os alunos da minha escola para que eles possam acessar o sistema.
+    \begin{itemize}
+        \item Cenário: Cadastro bem sucedido  
+        \par Dado que estou na tela de cadastro de alunos na visão do gestor
+        \par Quando eu preencher todos os dados corretamente
+        \par E apertar o botão de Criar
+        \par Então receberei uma mensagem de aluno criado com sucesso
+    \end{itemize}   
+    \begin{itemize}
+        \item Cenário: Cadastro mal sucedido  
+        \par Dado que estou na tela de cadastro de alunos na visão do gestor
+        \par Quando eu preencher algum dado incorretamente
+        \par Então não conseguirei clicar no botão de Criar, pois ele não estará ativo
+    \end{itemize}   
+    \begin{itemize}
+        \item Cenário: E-mail já existente 
+        \par Dado que estou na tela de cadastro de alunos na visão do gestor
+        \par Quando eu preencher os dados com um e-mail que já existe no sistema
+        \par Então não conseguirei clicar no botão de Criar, pois ele estará inativo
+    \end{itemize} 
+    \begin{itemize}
+        \item Cenário: Matrícula já existente 
+        \par Dado que estou na tela de cadastro de alunos na visão do gestor
+        \par Quando eu preencher os dados com uma matrícula que já existe no sistema
+        \par Então não conseguirei clicar no botão de Criar, pois ele não estará ativo
+    \end{itemize} 
 
 \item\textbf{Funcionalidade}: Atribuição de professores e alunos
     
@@ -374,7 +404,7 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
     \begin{itemize}
         \item Cenário: Cadastro bem sucedido  
         \par Dado que estou na tela de cadastro de conquistas na visão do gestor
-        \par Quando eu preencher todos os dados corretamente
+        \par Quando eu preencher todos os dados de todas as etapas corretamente
         \par E apertar o botão de Criar
         \par Então receberei uma mensagem de conquista criada com sucesso
     \end{itemize}   
@@ -382,12 +412,18 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \item Cenário: Cadastro mal sucedido  
         \par Dado que estou na tela de cadastro de conquistas na visão do gestor
         \par Quando eu preencher algum dado incorretamente
-        \par Então não conseguirei clicar no botão de Criar
+        \par Então não conseguirei clicar no botão de Criar, pois ele estará inativo
+    \end{itemize}   
+    \begin{itemize}
+        \item Cenário: Campo nulo
+        \par Dado que estou na tela de cadastro de conquistas na visão do gestor
+        \par Quando eu deixar de preencher algum dado no sistema
+        \par Então não conseguirei clicar no botão de Criar, pois ele não estará ativo
     \end{itemize}   
 
 \item\textbf{Funcionalidade}: Listagem de conquistas
     
-    Eu, como aluno, gostaria de visualizar minhas conquistas pendentes, para que eu corra atrás de conquistá-las e subir no ranking.
+    Eu, como aluno, gostaria de visualizar minhas conquistas pendentes, para que eu corra atrás de conquistá-las e subir no \gls{ranking}.
     \begin{itemize}
         \item Cenário: Visualização de conquistas 
         \par Dado que estou na tela inicial na visão do aluno
@@ -396,21 +432,21 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \par Então todas as minhas conquistas pendentes aparecerão em cinza
     \end{itemize}  
 
-\item\textbf{Funcionalidade}: Posição geral no ranking
+\item\textbf{Funcionalidade}: Posição geral no \gls{ranking}
     
-    Eu, como aluno mais inteligente da sala, gostaria de poder visualizar minha posição no ranking geral da turma, para alimentar meu ego.
+    Eu, como aluno mais inteligente da sala, gostaria de poder visualizar minha posição no \gls{ranking} geral da turma, para alimentar meu ego.
     \begin{itemize}
-        \item Cenário: Visualização da posição no ranking
+        \item Cenário: Visualização da posição no \gls{ranking}
         \par Dado que estou na tela inicial na visão do aluno
         \par Quando eu clicar para aparecer a barra lateral
-        \par Então conseguirei ver a minha posição no ranking
+        \par Então conseguirei ver a minha posição no \gls{ranking}
     \end{itemize}  
 
-\item\textbf{Funcionalidade}: Omissão da posição do ranking
+\item\textbf{Funcionalidade}: Omissão da posição do \gls{ranking}
     
-    Eu, como aluno não tão bem empenhado, não gostaria que minha posição no ranking seja visível para outros alunos, a não ser que eu esteja entre os primeiros da minha liga, para não sofrer \textit{bullying}.
+    Eu, como aluno não tão bem empenhado, não gostaria que minha posição no \gls{ranking} seja visível para outros alunos, a não ser que eu esteja entre os primeiros da minha liga, para não sofrer \textit{bullying}.
     \begin{itemize}
-        \item Cenário: Visualização do ranking por turma
+        \item Cenário: Visualização do \gls{ranking} por turma
         \par Dado que estou na tela inicial na visão do aluno
         \par Quando eu clicar para aparecer a barra lateral
         \par Então não conseguirei ver a posição dos outros alunos que não seja a minha e os três primeiros
@@ -418,7 +454,7 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
 
 \item\textbf{Funcionalidade}: Pontuação
     
-    Eu, como aluno, gostaria de ver minha pontuação geral, e a pontuação dos três primeiros do ranking da minha liga, para saber o quanto eu preciso me esforçar para alcançá-los.
+    Eu, como aluno, gostaria de ver minha pontuação geral, e a pontuação dos três primeiros do \gls{ranking} da minha liga, para saber o quanto eu preciso me esforçar para alcançá-los.
     \begin{itemize}
         \item Cenário: Visualização pontuação
         \par Dado que estou na tela inicial na visão do aluno
@@ -426,15 +462,15 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \par Então conseguirei ver a minha pontuação
     \end{itemize}  
  
-\item\textbf{Funcionalidade}: Posição no ranking por turma
+\item\textbf{Funcionalidade}: Posição no \gls{ranking} por turma
     
-    Eu, como professor, gostaria de ver o ranking de cada turma para poder fazer o acompanhamento da mesma.
+    Eu, como professor, gostaria de ver o \gls{ranking} de cada turma para poder fazer o acompanhamento da mesma.
     \begin{itemize}
-        \item Cenário: Visualização do ranking por turma
+        \item Cenário: Visualização do \gls{ranking} por turma
         \par Dado que estou na tela inicial na visão do professor
         \par E com a barra lateral aberta
-        \par Quando eu clicar em ver ranking por turma
-        \par Então serei redirecionado para a tela do ranking por turma
+        \par Quando eu clicar em ver \gls{ranking} por turma
+        \par Então serei redirecionado para a tela do \gls{ranking} por turma
     \end{itemize}  
 
 \item\textbf{Funcionalidade}: Detalhamento de conquistas
@@ -447,18 +483,18 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
         \par Então conseguirei ver os detalhes dessa conquista
     \end{itemize}  
 
-\item\textbf{Funcionalidade}: Ranking de todas as turmas
+\item\textbf{Funcionalidade}: \gls{ranking} de todas as turmas
     
-    Eu, como gestor, gostaria de ver o ranking de cada turma para poder fazer o acompanhamento das mesmas.
+    Eu, como gestor, gostaria de ver o \gls{ranking} de cada turma para poder fazer o acompanhamento das mesmas.
     \begin{itemize}
-        \item Cenário: Visualização do ranking de todas as turmas
+        \item Cenário: Visualização do \gls{ranking} de todas as turmas
         \par Dado que estou cadastrado como gestor no sistema
         \par Quando eu fazer o login
-        \par E selecionar a opção ranking
-        \par Então todos os rankings das turmas cadastradas na minha escola aparecerão em formato de lista
+        \par E selecionar a opção \gls{ranking}
+        \par Então todos os \glspl{ranking} das turmas cadastradas na minha escola aparecerão em formato de lista
     \end{itemize}
 
-\item\textbf{Funcionalidade}: \glspl{dashboard}
+\item\textbf{Funcionalidade}: \glspl{dashboard} de desempenho
     
     Eu, como gestor, gostaria de ver o desempenho de cada turma e de alunos em particular para poder acompanhar cada caso com a devida atenção necessária.
     \begin{itemize}
@@ -481,15 +517,44 @@ Com os requisitos levantados, foi-se possível elaborar as histórias de usuári
 \end{itemize} 
 
 \subsubsection{Product Backlog}
-Com as histórias de usuário definidas, foi montado o \gls{product-backlog} para definir a ordem de importância delas. A \autoref{product-backlog-apendice} representa o resultado da priorização, segundo cada funcionalidade.  
+Com as histórias de usuário definidas, foi montado o \gls{product-backlog} para definir a ordem de importância delas. A \autoref{product-backlog} representa o resultado da priorização, segundo cada funcionalidade.  
+\begin{PAGINA-A3}
+
+\begin{figure}[p]
+    \centering \includegraphics[height=\textheight,width=\textwidth,keepaspectratio]{imagens/UserStoryMappingFrameworkHD.jpg}
+	\caption{\label{product-backlog}Product Backlog}
+   \fonte{Os autores}
+\end{figure}
+
+\end{PAGINA-A3}
 
 \subsubsection{MER e DER}
-Para a modelagem de dados do projeto, foi elaborado o \ac{mer} e, para representá-lo, foi feito o \ac{der}, conforme demostra a \autoref{mer-apendice} e a \autoref{der-apendice}.
+Para a modelagem de dados do projeto, foi elaborado o \ac{mer} da aplicação, segundo a \autoref{mer-figura}. E, para representá-lo, foi feito o \ac{der}, conforme demostra a \autoref{der-figura}.
 
+\begin{PAGINA-A3}
+
+\begin{figure}[p]
+    \centering \includegraphics[height=\textheight,width=\textwidth,keepaspectratio]{imagens/ModeloConceitual.png}
+	\caption{\label{mer-figura}Modelo Entidade Relacionamento}
+   \fonte{Os autores}
+\end{figure}
+
+\end{PAGINA-A3}
+
+
+\begin{PAGINA-A3}
+
+\begin{figure}[p]
+    \centering \includegraphics[height=\textheight,width=\textwidth,keepaspectratio]{imagens/der.jpg}
+	\caption{\label{der-figura}Diagrama Entidade Relacionamento}
+   \fonte{Os autores}
+\end{figure}
+
+\end{PAGINA-A3}
 
 \subsubsection{Dicionário de Dados}
 
-Neste momento, a aplicação possui onze tabelas para armazenamento dos dados. O \autoref{quadro-tabelas-bd} apresenta todas as tabelas do sistema.
+Neste momento, a aplicação possui 15 tabelas para armazenamento dos dados. O \autoref{quadro-tabelas-bd} apresenta todas as tabelas do sistema.
 
 \begin{quadro}[htb]
 \centering
@@ -506,7 +571,11 @@ Neste momento, a aplicação possui onze tabelas para armazenamento dos dados. O
     \hline
     activity\_delivery \\
     \hline
+    attachments \\
+    \hline
     class \\
+    \hline
+    class\_activities \\
     \hline
     manager \\
     \hline
@@ -514,11 +583,15 @@ Neste momento, a aplicação possui onze tabelas para armazenamento dos dados. O
     \hline
     student \\
     \hline
+    student\_achievements \\
+    \hline
     student\_class\_membership \\
     \hline
     teacher \\
     \hline
     teacher\_class\_membership \\
+    \hline
+    tier\_config \\
     \hline
     user\_credentials \\
     \hline
@@ -534,27 +607,33 @@ A tabela \textit{achievement} contém todos os dados referentes às conquistas q
 \ABNTEXfontereduzida
 \caption[Dicionário de Dados: Tabela achievement]{Dicionário de Dados: Tabela achievement}
 \label{quadro-tabelabd-achievement}
-\begin{tabular}{|l|m{3.0cm}|m{2.5cm}|m{1.0cm}|m{2.0cm}|m{2.0cm}|}
+\begin{tabular}{|l|m{3.0cm}|m{2.5cm}|m{1.0cm}|m{2.0cm}|m{2.0cm}|m{2.0cm}|}
   \hline
-   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi- \\ fica- \\ dor}  & \thead{Restrições \\ de \\ domínio} & \thead{Referências} \\
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi- \\ fica- \\ dor}  & \thead{Restrições \\ de \\ domínio} & Definições adicionais & \thead{Referências} \\
     \hline
-      id & Atributo identificador da conquista & BIGINT & X & UNIQUE, NOT NULL & \\
-    \hline
-      name & Nome da conquista & VARCHAR(50) & & NOT NULL & \\
+      id & Atributo identificador da conquista & BIGINT & X & UNIQUE, NOT NULL & \makecell{AUTO\_\\INCREMENT} &  \\
       \hline
-      description & Descrição da conquista & VARCHAR(240) & & NOT NULL & \\
+      name & Nome da conquista & VARCHAR(50) & & NOT NULL & &\\
       \hline
-      before\_at & Define conquista por concluir atividades antes de uma data estipulada & DATETIME & & & \\
+      description & Descrição da conquista & VARCHAR(240) & & NOT NULL &  & \\
       \hline
-      earlier\_of & Define conquista por concluir atividades antes de uma determinada quantidade de alunos & INT & & & \\
+      icon\_name & Nome do ícone escolhido para uma determinada conquista & VARCHAR(50) & & NOT NULL & &\\
       \hline
-      best\_of & Define conquista por estar entre os melhores da turma & INT & & & \\
+      is\_active & Define se a conquista está ativa para ser entregue, sendo o valor padrão verdadeiro & BOOLEAN & & & DEFAULT TRUE &\\
       \hline
-      \makecell{average\_grade\\\_greater\_or\\\_equals\_than} & Define conquista por ultrapassar uma determinada nota & FLOAT & & & \\
+      before\_at & Define conquista por concluir atividades antes de uma data estipulada & DATETIME & & & &\\
       \hline
-      class\_id & Identificador da tabela \textit{class} & BIGINT & & & \\
+      earlier\_of & Define conquista por concluir atividades antes de uma determinada quantidade de alunos & INT & & & &\\
       \hline
-      activity\_id & Chave estrangeira para a tabela \textit{activity} & BIGINT & & & activity(id) \\
+      best\_of & Define conquista por estar entre os melhores da turma & INT & & & &\\
+      \hline
+      \makecell{average\_grade\\\_greater\_or\\\_equals\_than} & Define conquista por ultrapassar uma determinada nota & FLOAT & & & &\\
+      \hline
+      class\_id & Chave estrangeira para a tabela \textit{class} & BIGINT & & & & class(id)\\
+      \hline
+      activity\_id & Chave estrangeira para a tabela \textit{activity} & BIGINT & & & & activity(id) \\
+      \hline
+      teacher\_id & Chave estrangeira para a tabela \textit{teacher} & BIGINT & & & & teacher(\makecell{teacher\_id}) \\
       \hline
 \end{tabular}
 \legend{Fonte: Os autores}
@@ -578,11 +657,15 @@ A tabela \textit{activity} contém as características de uma atividade dentro d
       \hline
       description & Descrição da atividade & VARCHAR(240) & & NOT NULL & \\
       \hline
-      is\_deliverable & Define se a atividade é entregável ou não & BOOLEAN & & & \\
+      punctuation & Pontuação máxima que pode ser conquistada ao realizar a atividade & DOUBLE & & NOT NULL & \\
       \hline
-      expire\_date & Data de expiração da atividade & DATETIME & & NOT NULL & \\
+      is\_visible & Define se a atividade estará visível para o aluno & BOOLEAN & & & \\
       \hline
-      max\_value & Nota máxima possível de ser obtida para a atividade & DOUBLE & & NOT NULL & \\
+      is\_active & Define se a atividade estará ativa e disponível para ser entregue pelo aluno ou não & BOOLEAN & & & \\
+      \hline
+      \makecell{max\_delivery\\\_date} & Data de expiração da atividade & DATETIME & & NOT NULL & \\
+      \hline
+      teacher\_id & Chave estrangeira para a tabela \textit{teacher} & BIGINT & & NOT NULL & \makecell{teacher\\(teacher\_id)}\\
       \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -598,13 +681,35 @@ A tabela \textit{activity\_delivery} faz referência à entrega de atividades pe
 \label{quadro-tabelabd-activity-delivery}
 \begin{tabular}{|m{3.1cm}|m{1.8cm}|m{2.0cm}|m{1.4cm}|m{1.9cm}|m{2.1cm}|m{1.9cm}|}
   \hline
-   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identificador}  & \thead{Restrições \\ de \\ domínio} & \thead{Definições \\ adicionais} & \thead{Referências} \\
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi-\\fica-\\dor}  & \thead{Restrições \\ de \\ domínio} & \thead{Definições \\ adicionais} & \thead{Referências} \\
     \hline
       id & Atributo identificador da entrega & BIGINT & X & UNIQUE, NOT NULL & \makecell{AUTO\_\\INCREMENT} & \\\hline
       delivery\_timestamp & Data e hora da entrega, com a data e hora atuais definidas como padrão  & DATETIME & & & \makecell{DEFAULT\\ CURRENT\_\\TIMESTAMP} & \\\hline
       grade\_received & Nota obtida pelo aluno & DOUBLE & & & & \\\hline
       student\_delivery\_id & Chave estrangeira que identifica o estudante que entregou a atividade & BIGINT & & NOT NULL & & \makecell{student\\(student\_\\id)} \\\hline
-      activity\_id & Chave estrangeira que identifica a atividade entregue & BIGINT & & NOT NULL & & activity(id)\\\hline
+      activity\_id & Chave estrangeira que identifica a atividade entregue & BIGINT & & NOT NULL & & activity(id)\\
+      \hline
+      attachment\_id & Chave estrangeira para a tabela \textit{attachments} que identifica o anexo da atividade entregue & BIGINT & & NOT NULL & & \makecell{attachments\\(id)}\\
+      \hline
+    \end{tabular}
+\legend{Fonte: Os autores}
+\end{quadro}
+\FloatBarrier
+
+A tabela \textit{attachments} contém os dados dos anexos de atividades armazenados no Amazon S3. O \autoref{quadro-tabelabd-attachments} detalha os atributos presentes nessa tabela.
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption[Dicionário de Dados: Tabela attachments]{Dicionário de Dados: Tabela attachments}
+\label{quadro-tabelabd-attachments}
+\begin{tabular}{|m{3.1cm}|m{1.8cm}|m{2.5cm}|m{1.4cm}|m{1.9cm}|m{2.1cm}|m{1.9cm}|} \hline
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi-\\fica-\\dor}  & \thead{Restrições \\ de \\ domínio} & \thead{Definições \\ adicionais} & \thead{Referências} \\
+    \hline
+      id & Atributo identificador do anexo & BIGINT & X & UNIQUE, NOT NULL & \makecell{AUTO\_\\INCREMENT} & \\\hline
+      filename & Nome do arquivo do anexo & VARCHAR(100) & & &  &  \\\hline
+      bucket\_key & Chave utilizada para criptografia do anexo na Amazon S3 & VARCHAR(100) & & & & \\\hline
+      file\_md5 & Atributo que expressa a sequência de 32 caracteres de criptografia do arquivo  & VARCHAR(40) & & & & \\\hline
     \end{tabular}
 \legend{Fonte: Os autores}
 \end{quadro}
@@ -625,14 +730,34 @@ A tabela \textit{class} representa as turmas que são cadastradas no sistema. O 
     \hline
       name & Nome da turma & VARCHAR(50) & & & & \\
       \hline
-      school\_id & Chave estrangeira para identificar a escola na qual a turma está inserida & BIGINT & & & & school(id) \\
+      school\_id & Chave estrangeira para a tabela \textit{school} que identifica a escola na qual a turma está inserida & BIGINT & & & & school(id) \\
       \hline
       is\_active
-       & Atributo que identifica se a turma está ativa ou não, com o valor verdadeiro por padrão & BOOLEAN & & NOT NULL & DEFAULT TRUE & \\
+       & Atributo que identifica se a turma está ativa, com o valor verdadeiro por padrão & BOOLEAN & & NOT NULL & DEFAULT TRUE & \\
       \hline
-      is\_done & Atributo que identifica se a turma está encerrada ou não, para poder atribuir as conquistas aos alunos no final do período letivo & BOOLEAN & & NOT NULL & DEFAULT TRUE & activity(id)\\
+      is\_done & Atributo que identifica se a turma está encerrada ou não, para poder atribuir as conquistas aos alunos no final do período letivo, com o valor verdadeiro por padrão & BOOLEAN & & NOT NULL & DEFAULT TRUE & \\
       \hline
     \end{tabular}
+\legend{Fonte: Os autores}
+\end{quadro}
+\FloatBarrier
+
+A tabela \textit{class\_activities} contém a referência de todas as atividades que foram aplicadas para uma turma, representando o relacionamento de muitos para muitos existente entre as entidades \textit{class} e \textit{activities}. O \autoref{quadro-tabelabd-class-activities} contém as informações sobre a entidade no banco de dados.
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption[Dicionário de Dados: Tabela class\_activities]{Dicionário de Dados: Tabela class\_activities}
+\label{quadro-tabelabd-class-activities}
+\begin{tabular}{|p{1.3cm}|m{2.0cm}|m{2.2cm}|m{2.1cm}|m{1.8cm}|m{3.3cm}|m{1.8cm}|}
+  \hline
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identificador}  & \thead{Restrições \\de\\ domínio} & \thead{Definições\\ adicionais} & \thead{Referências} \\
+    \hline
+      class\_id & Atributo identificador da tabela e chave estrangeira para a tabela \textit{class} & BIGINT & X & UNIQUE, NOT NULL & & class(id)\\
+    \hline
+      \makecell{activity\_\\id} & Atributo identificador da tabela e chave estrangeira para tabela \textit{activity} & BIGINT & X & UNIQUE, NOT NULL & & activity(id)\\
+      \hline
+      \end{tabular}
 \legend{Fonte: Os autores}
 \end{quadro}
 \FloatBarrier
@@ -644,13 +769,13 @@ Os gestores do sistema serão cadastrados na tabela \textit{manager}, sendo que 
 \ABNTEXfontereduzida
 \caption[Dicionário de Dados: Tabela manager]{Dicionário de Dados: Tabela manager}
 \label{quadro-tabelabd-manager}
-\begin{tabular}{|p{1.7cm}|m{2.2cm}|m{1.1cm}|m{2.2cm}|m{1.8cm}|m{1.8cm}|m{2.9cm}|}
+\begin{tabular}{|p{1.7cm}|m{2.5cm}|m{1.1cm}|m{2.2cm}|m{1.8cm}|m{1.8cm}|m{2.9cm}|}
   \hline
    \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identificador}  & \thead{Restrições \\de\\ domínio} & \thead{Definições\\ adicionais} & \thead{Referências} \\
     \hline
-      manager\_id & Chave estrangeira para as credenciais do gestor & BIGINT & X & UNIQUE, NOT NULL & & \makecell{user\_\\credentials(id)} \\
+      manager\_id & Chave estrangeira para a tabela \textit{user\_credentials} com a função de referenciar as credenciais do gestor & BIGINT & X & UNIQUE, NOT NULL & & \makecell{user\_\\credentials(id)} \\
     \hline
-      school\_id & Chave estrangeira para referenciar a escola onde o gestor está cadastrado & BIGINT & & & & school(id) \\
+      school\_id & Chave estrangeira para a tabela \textit{school} que referencia a escola onde o gestor está cadastrado & BIGINT & & & & school(id) \\
       \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -672,9 +797,9 @@ Os dados das escolas cadastradas no sistema são armazenados na tabela \textit{s
     \hline
       name & Nome da escola & VARCHAR(100) & & NOT NULL & & \\
     \hline
-        identifier & Identificador da escola para pesquisa & CHAR(20) & & UNIQUE, NOT NULL & & \\
+    identifier & Identificador da escola para pesquisa & CHAR(20) & & UNIQUE, NOT NULL & & \\
     \hline
-        is\_active & Atributo para definir se a escola está ativa ou não, com o valor verdadeiro por padrão & BOOLEAN & & & DEFAULT TRUE & \\
+    is\_active & Atributo para definir se a escola está ativa ou não, com o valor verdadeiro por padrão & BOOLEAN & & & DEFAULT TRUE & \\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -696,7 +821,29 @@ A tabela \textit{student} armazena todos os dados essenciais que fazem parte do 
     \hline
       registry & Registro do estudante na instituição de ensino & TEXT(10) & & NOT NULL & & \\
     \hline
-    school\_id & Chave estrangeira para a tabela school que referencia a escola em que o estudante está matriculado & BIGINT & & & & school(id)  \\
+    school\_id & Chave estrangeira para a tabela \textit{school} que referencia a escola em que o estudante está matriculado & BIGINT & & & & school(id) \\
+    \hline
+    \end{tabular}
+\legend{Fonte: Os autores}
+\end{quadro}
+\FloatBarrier
+
+A tabela \textit{student\_achievements} representa o relacionamento de muitos para muitos entre alunos e conquistas. O \autoref{quadro-tabelabd-student-achievements}
+contém o detalhamento dos atributos da tabela em questâo.
+
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption[Dicionário de Dados: Tabela student\_achievements]{Dicionário de Dados: Tabela student\_achievements}
+\label{quadro-tabelabd-student-achievements}
+\begin{tabular}{|p{2.0cm}|m{2.5cm}|m{2.0cm}|m{1.5cm}|m{2.0cm}|m{2.0cm}|m{2.2cm}|}
+  \hline
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi-\\fica-\\dor}  & \thead{Restrições \\ de \\ domínio} & \thead{Definições \\ adicionais} & \thead{Referências} \\
+    \hline
+      student\_id & Campo identificador do estudante que recebeu a conquista e chave estrangeira para a tabela \textit{student} & BIGINT & X & UNIQUE, NOT NULL & & \makecell{student\\(student\_id)} \\
+    \hline
+      \makecell{achievement\_\\id} & Campo identificador do estudante que recebeu a conquista e chave estrangeira para a tabela \textit{student} & BIGINT & X & UNIQUE, NOT NULL & & achivement(id) \\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -710,17 +857,17 @@ A tabela \textit{student\_class\_membership} representa o relacionamento de muit
 \ABNTEXfontereduzida
 \caption[Dicionário de Dados: Tabela student\_class\_membership]{Dicionário de Dados: Tabela student\_class\_membership}
 \label{quadro-tabelabd-studentcm}
-\begin{tabular}{|p{1.6cm}|m{1.7cm}|m{1.6cm}|m{2.0cm}|m{1.6cm}|m{2.5cm}|m{2.9cm}|}
+\begin{tabular}{|p{1.6cm}|m{2.2cm}|m{1.6cm}|m{1.5cm}|m{1.6cm}|m{2.5cm}|m{2.9cm}|}
   \hline
-   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identificador}  & \thead{Restrições \\ de \\domínio} & \thead{Definições \\adicionais} & \thead{Referências} \\
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi-\\fica-\\dor}  & \thead{Restrições \\ de \\domínio} & \thead{Definições \\adicionais} & \thead{Referências} \\
     \hline
       id & Campo identificador do relacionamento entre estudante e turma & BIGINT & X & UNIQUE, NOT NULL & \makecell{AUTO\_\\INCREMENT} & \\
     \hline
-      student\_id & Chave estrangeira que referencia o estudante & BIGINT & & & & student(student\_id) \\
+      student\_id & Chave estrangeira que referencia a tabela o estudante na tabela \textit{student} & BIGINT & & & & student(student\_id) \\
      \hline
-      class\_id & Chave estrangeira que referencia a turma & BIGINT & & & & class(id) \\
+      class\_id & Chave estrangeira que referencia a tabela \textit{class} onde está a turma do aluno & BIGINT & & & & class(id) \\
     \hline
-    is\_active & Atributo que define se o estudante ainda faz parte de uma turma determinada turma, sendo verdadeiro o valor padrão para esse atributo & BOOLEAN & & & DEFAULT TRUE & \\
+    is\_active & Atributo que define se o estudante ainda faz parte de uma determinada turma, sendo verdadeiro o valor padrão para esse atributo & BOOLEAN & & & DEFAULT TRUE & \\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -740,7 +887,7 @@ Como um professor representa um tipo de usuário do sistema, a tabela \textit{te
     \hline
       teacher\_id & Campo identificador do professor & BIGINT & X & UNIQUE, NOT NULL & & \makecell{user\_\\credentials(id)} \\
     \hline
-      school\_id & Chave estrangeira que referencia a escola a qual o professor pertence & BIGINT & & UNIQUE, NOT NULL & & school(id)\\
+      school\_id & Chave estrangeira para a tabela \textit{school} que referencia a escola a qual o professor pertence & BIGINT & & UNIQUE, NOT NULL & & school(id)\\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -754,7 +901,7 @@ A tabela \textit{teacher\_class\_membership} representa o relacionamento de muit
 \ABNTEXfontereduzida
 \caption[Dicionário de Dados: Tabela teacher\_class\_membership]{Dicionário de Dados: Tabela teacher\_class\_membership}
 \label{quadro-tabelabd-teachercm}
-\begin{tabular}{|p{1.5cm}|m{2.0cm}|m{1.5cm}|m{2.0cm}|m{1.6cm}|m{3.3cm}|m{2.8cm}|}
+\begin{tabular}{|p{1.5cm}|m{2.0cm}|m{1.7cm}|m{2.0cm}|m{1.6cm}|m{3.3cm}|m{2.8cm}|}
   \hline
    \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identificador}  & \thead{Restrições \\de\\ domínio} & \thead{Definições\\ adicionais} & \thead{Referências} \\
     \hline
@@ -764,7 +911,31 @@ A tabela \textit{teacher\_class\_membership} representa o relacionamento de muit
      \hline
       class\_id & Chave estrangeira para a tabela class & BIGINT & & & & class(id) \\
     \hline
-    is\_active & Atributo que indica se o relacionamento está ativo ou não, sendo definido verdadeiro como valor padrão para a variável & BOOLEAN & & & DEFAULT TRUE & \\
+    is\_active & Atributo que indica se a turma na qual o professor está inserido está ativa, sendo verdadeiro o valor definido como padrão para a variável & BOOLEAN & & & DEFAULT TRUE & \\
+    \hline
+    \end{tabular}
+\legend{Fonte: Os autores}
+\end{quadro}
+\FloatBarrier
+
+A tabela \textit{tier\_config} contém a regra que estrutura o \textit{ranking} da turma e separa os alunos em diferentes ligas. O \autoref{quadro-tabelabd-tierconfig} contém os detalhes sobre cada atributo da entidade.
+
+\begin{quadro}[htb]
+\centering
+\ABNTEXfontereduzida
+\caption[Dicionário de Dados: Tabela tier\_config]{Dicionário de Dados: Tabela tier\_config}
+\label{quadro-tabelabd-tierconfig}
+\begin{tabular}{|p{2.5cm}|m{2.5cm}|m{1.5cm}|m{1.0cm}|m{1.6cm}|m{2.0cm}|m{2.8cm}|}
+  \hline
+   \thead{Variável} & \thead{Descrição} & \thead{Tipo}  & \thead{Identi-\\fica-\\dor}  & \thead{Restrições \\de\\ domínio} & \thead{Definições\\ adicionais} & \thead{Referências} \\
+    \hline
+      class\_id & Atributo identificador da tabela e chave estrangeira para a tabela \textit{class} & BIGINT & X & UNIQUE, NOT NULL & & class(id)\\
+    \hline
+      gold\_percent & Atributo que, de acordo com o percentual de rendimento dos alunos, estabelece o índice necessário para alcançar a liga ouro & FLOAT & & NOT NULL & & \\
+     \hline
+     silver\_percent & Atributo que, de acordo com o percentual de rendimento dos alunos, estabelece o índice de rendimento necessário para alcançar a liga prata & FLOAT & & NOT NULL & & \\
+    \hline
+      bronze\_percent & Atributo que, de acordo com o percentual de rendimento dos alunos, estabelece o índice de rendimento necessário para alcançar a liga bronze & FLOAT & & NOT NULL & & \\
     \hline
     \end{tabular}
 \legend{Fonte: Os autores}
@@ -800,45 +971,3 @@ A tabela \textit{user\_credentials} contém todos os dados pessoais dos usuário
 \legend{Fonte: Os autores}
 \end{quadro}
 \FloatBarrier
-
-Além das tabelas pertencentes ao sistema, algumas tabelas do Moodle serão utilizadas para coleta de dados relacionados as atividades entregues pelos alunos. O \autoref{quadro-tabelas-moodle} lista as entidades que estão previstas para serem integradas ao sistema.
-
-\begin{quadro}[htb]
-\centering
-\ABNTEXfontereduzida
-\caption[Tabelas do Moodle previstas para integração]{Tabelas do Moodle previstas para integração}
-\label{quadro-tabelas-moodle}
-\begin{tabular}{|p{4.5cm}|}
-  \hline
-   \thead{Tabelas} \\
-    \hline
-    achievement \\
-    \hline
-    activity \\
-    \hline
-    activity\_delivery \\
-    \hline
-    class \\
-    \hline
-    manager \\
-    \hline
-    school \\
-    \hline
-    student \\
-    \hline
-    student\_class\_membership \\
-    \hline
-    teacher \\
-    \hline
-    teacher\_class\_membership \\
-    \hline
-    user\_credentials \\
-    \hline
-\end{tabular}
-\legend{Fonte: Os autores}
-\end{quadro}
-\FloatBarrier
-
-
-\subsection{Telas de Protótipos}
-Para facilitar a visualização de como ficaria a aplicação até o mínimo produto viável, foram desenvolvidos telas de protótipos de alta fidelidade. Tais telas são apresentadas no \autoref{prototipos}, divididos segundo a visão do administrador, do professor e do aluno.
